@@ -16,11 +16,16 @@ import com.xworkz.register.service.RegisterServiceImpl;
 public class RegisterController {
 
 	@Autowired
-	private RegisterDAO dao;
+	private RegisterService service;
 
 	public RegisterController() {
 		super();
 		System.out.println(this.getClass().getSimpleName() + " object created ");
+	}
+
+	public RegisterController(RegisterService service) {
+		super();
+		this.service = service;
 	}
 
 	@RequestMapping("/register.do")
@@ -29,7 +34,6 @@ public class RegisterController {
 		System.out.println("invoked onRegister()");
 		RegisterDTO dto = new RegisterDTO(name, mail, phoneno, course, crepass, conpass);
 		System.out.println(dto);
-		RegisterService service = new RegisterServiceImpl(dao);
 		service.validateAndSave(dto);
 		return "/Success.jsp";
 	}

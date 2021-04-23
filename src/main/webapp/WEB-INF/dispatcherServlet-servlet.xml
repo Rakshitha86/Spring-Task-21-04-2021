@@ -12,6 +12,7 @@
 		id="registerDAOImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
 	</bean>
+	<bean class="com.xworkz.register.service.RegisterServiceImpl" id="registerServiceImpl"></bean>
 	<bean class="org.springframework.jdbc.core.JdbcTemplate"
 		id="jdbcTemplate">
 		<property name="dataSource" ref="driverManagerDataSource"></property>
